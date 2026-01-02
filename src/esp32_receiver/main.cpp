@@ -3,6 +3,7 @@
 #include <WiFi.h>
 #include "common.h"
 
+// struct_message is defined in common.h
 struct_message myData;
 
 void OnDataRecv(const uint8_t * mac, const uint8_t *incomingData, int len) {
@@ -22,8 +23,10 @@ void setup() {
     return;
   }
 
+	// It tells the ESP32: "Whenever a message hits our antenna, stop what you are doing and run the function called OnDataRecv."
   esp_now_register_recv_cb(esp_now_recv_cb_t(OnDataRecv));
-  Serial.println("[ESP32] Receiver Listening...");
+
+	Serial.println("[ESP32] Receiver Listening...");
 }
 
 void loop() {
