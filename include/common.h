@@ -6,7 +6,7 @@
 // Universal structure for all boards
 typedef struct struct_message {
   char msg[32];
-  uint32_t seq_num; // Used to track if packets are missing
+  int counter;
 } struct_message;
 
 // Broadcast Address (Sends to everyone)
